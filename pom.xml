@@ -24,13 +24,12 @@
                         <id>non-aggregate</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>aggregate-jar</goal>
+                            <goal>javadoc</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
                     <outputDirectory>${project.build.outputDirectory}/apidocs</outputDirectory>
-                    <reportOutputDirectory>${project.reporting.outputDirectory}/apidocs</reportOutputDirectory>
                     <links>
                         <link>http://jd.bukkit.org/dev/apidocs/</link>
                     </links>
