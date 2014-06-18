@@ -35,7 +35,7 @@ package org.codemine.schedule;
  *       public void run() {
  *           System.out.println("Hello I was delayed 1 minute");
  *       }
- *    }.runTaskLater(this,1l,TimeUnit.MINUTE);
+ *    }.runTaskLater(this,1l,TimeUnit.MINUTES);
  * }
  * </pre></tt>
  * <p/>
