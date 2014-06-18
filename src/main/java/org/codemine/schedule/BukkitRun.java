@@ -61,7 +61,7 @@ public abstract class BukkitRun implements Runnable {
         return setupId(Bukkit.getScheduler().runTaskLater(plugin,this,delay));
     }
     /**
-     * Schedules this to run after the specified number of server ticks.
+     * Schedules this to run after the specified delay value and the {@link org.codemine.schedule.TimeUnit} .
      *
      * @param plugin the reference to the plugin scheduling task
      * @param delay  the delay value to wait before running the task
@@ -94,14 +94,14 @@ public abstract class BukkitRun implements Runnable {
     /**
      * <b>Asynchronous tasks should never access any API in Bukkit. Great care should be taken to assure the thread-safety of asynchronous tasks.</b>
      * <p/>
-     * Schedules this to run asynchronously after the specified number of server ticks.
+     * Schedules this to run asynchronously after the specified delay value and the {@link org.codemine.schedule.TimeUnit} .
      *
+     * @param plugin the reference to the plugin scheduling task
      * @param delay the delay value to wait before running the task
      * @param unit  the unit of time the delay value relates to
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalStateException    if this was already scheduled
-     * @see org.bukkit.scheduler.BukkitScheduler#runTaskLaterAsynchronously(Plugin,Runnable,long)
      */
     public synchronized BukkitTask runTaskLaterAsynchronously(Plugin plugin,long delay,TimeUnit unit) throws IllegalArgumentException, IllegalStateException{
         checkState();
@@ -123,7 +123,7 @@ public abstract class BukkitRun implements Runnable {
         return setupId(Bukkit.getScheduler().runTaskTimer(plugin,this,delay,period));
     }
     /**
-     * Schedules this to repeatedly run until cancelled, starting after the specified number of server ticks.
+     * Schedules this to repeatedly run until cancelled, starting after the specified delay value and period value and the {@link org.codemine.schedule.TimeUnit} .
      *
      * @param plugin the reference to the plugin scheduling task
      * @param period the period to wait between runs
@@ -132,7 +132,6 @@ public abstract class BukkitRun implements Runnable {
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalStateException    if this was already scheduled
-     * @see org.bukkit.scheduler.BukkitScheduler#runTaskTimer(Plugin,Runnable,long,long)
      */
     public synchronized BukkitTask runTaskTimer(Plugin plugin,long delay,long period,TimeUnit unit) throws IllegalArgumentException, IllegalStateException{
         checkState();
@@ -158,15 +157,15 @@ public abstract class BukkitRun implements Runnable {
     /**
      * <b>Asynchronous tasks should never access any API in Bukkit. Great care should be taken to assure the thread-safety of asynchronous tasks.</b>
      * <p/>
-     * Schedules this to repeatedly run asynchronously until cancelled, starting after the specified number of server ticks.
+     * Schedules this to repeatedly run asynchronously until cancelled, starting after the specified delay value and period value and the {@link org.codemine.schedule.TimeUnit} .
      *
      * @param plugin the reference to the plugin scheduling task
-     * @param delay  the ticks to wait before running the task for the first time
-     * @param period the ticks to wait between runs
+     * @param period the period to wait between runs
+     * @param delay  the delay value to wait before running the task
+     * @param unit   the unit of time the delay value relates to
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalStateException    if this was already scheduled
-     * @see org.bukkit.scheduler.BukkitScheduler#runTaskTimerAsynchronously(Plugin,Runnable,long,long)
      */
     public synchronized BukkitTask runTaskTimerAsynchronously(Plugin plugin,long delay,long period,TimeUnit unit) throws IllegalArgumentException, IllegalStateException{
         checkState();

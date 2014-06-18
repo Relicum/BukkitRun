@@ -6,5 +6,7 @@ Minecraft TimeUnit
  The intended use is for define delays and periods of time when using the Bukkit scheduler and a BukkitRunnable
  
  Included is a modified version of BukkitRunnable called BukkitRun (To help avoid name conflicts)
+ 
+ THIS IS NOT A PLUGIN more info to follow.
   
   
