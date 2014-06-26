@@ -5,7 +5,47 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitTask;
 
 /**
- * This class is provided as an easy way to handle scheduling tasks.
+ * A <tt>BukkitRun</tt> is the same as a BukkitRunnable with 4 extra overloaded methods.
+ * <p>This Class is a direct copy code by the Bukkit Dev Team, I can't claim any credit at all. My overloaded methods, require about
+ * 10 lines of code. The reason for copying the entire class was due to the scope of some of the properties. I have included the
+ * GPL 3 license and have followed the requirements. The main reason for this class is to demonstrate my customised {@link org.codemine.schedule.TimeUnit} class.
+ * <p>This class is provided as an easy way to handle scheduling tasks, with the extra feature of
+ * being able to accept {@link org.codemine.schedule.TimeUnit} as a valid input.</p>
+ * <p>The 4 extra methods <tt>BukkitRun</tt> has are overload methods already in the default class.
+ * <ol>
+ *     <li>{@link org.codemine.schedule.BukkitRun#runTaskLater(org.bukkit.plugin.Plugin, long, TimeUnit)}</li>
+ *     <li>{@link org.codemine.schedule.BukkitRun#runTaskLaterAsynchronously(org.bukkit.plugin.Plugin, long, TimeUnit)}</li>
+ *     <li>{@link org.codemine.schedule.BukkitRun#runTaskTimer(org.bukkit.plugin.Plugin, long, long, TimeUnit)}</li>
+ *     <li>{@link org.codemine.schedule.BukkitRun#runTaskTimerAsynchronously(org.bukkit.plugin.Plugin, long, long, TimeUnit)}</li>
+ * </ol>
+ * <hr>
+ * Am example usage can be seen below. This sets the task to be delayed by 1 minute.
+ * <tt>
+ * <pre>
+ * {@code
+ * new BukkitRun() {
+ *
+ *       public void run() {
+ *           System.out.println("Hello I was delayed 1 minute");
+ *       }
+ *    }.runTaskLater(this,1l,TimeUnit.MINUTES);
+ * }
+ * </pre></tt>
+ * <p>
+ * You can also use it with the Bukkit scheduler without any modifications.The following will delay the task by 15 seconds.
+ * <tt>
+ * <pre>
+ * {@code
+ *         Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this,new Runnable() {
+ *             public void run() {
+ *                 System.out.println("Hi I was delayed by 15 seconds")
+ *             }
+ *         },TimeUnit.SECONDS.toTicks(15l));
+ * }
+ * </pre>
+ * </tt>
+ * </p>
+ * @version 1.0-SNAPSHOT
  */
 public abstract class BukkitRun implements Runnable {
 
@@ -69,7 +109,6 @@ public abstract class BukkitRun implements Runnable {
      * @return a BukkitTask that contains the id number
      * @throws IllegalArgumentException if plugin is null
      * @throws IllegalStateException    if this was already scheduled
-     * @see org.bukkit.scheduler.BukkitScheduler#runTaskLater(Plugin,Runnable,long)
      */
     public synchronized BukkitTask runTaskLater(Plugin plugin,long delay,TimeUnit unit) throws IllegalArgumentException, IllegalStateException{
         checkState();

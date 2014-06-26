@@ -22,7 +22,7 @@
  * </ol>
  *
  * <p>I also removed micro and nano time and some of the timeout methods to keep things simple for now.</p>
- * Fully details of this refactored class and usage details can be found here <tt>{@link org.codemine.schedule.TimeUnit}</tt>.
+ * Full details of this refactored class and usage details can be found here <tt>{@link org.codemine.schedule.TimeUnit}</tt>.
  *
  * @version 0.0.1
  */

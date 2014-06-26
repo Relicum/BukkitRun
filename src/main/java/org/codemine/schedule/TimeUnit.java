@@ -30,7 +30,7 @@ package org.codemine.schedule;
  * <tt>
  * <pre>
  * {@code
- * new BukkitRunnable() {
+ * new BukkitRun() {
  *
  *       public void run() {
  *           System.out.println("Hello I was delayed 1 minute");
