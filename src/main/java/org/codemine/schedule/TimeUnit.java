@@ -12,7 +12,7 @@ package org.codemine.schedule;
  * <p/>
  * <p>A <tt>TimeUnit</tt> is mainly used to inform time-based methods
  * how a given timing parameter should be interpreted. For example,
- * the following code the developer wants a 25 second delay before the task starts. The example does not include
+ * the following code the developer wants a 20 second delay before the task starts. The example does not include
  * any modifications to BukkitRunnable, what will come next. But it does indicate how it can be used
  * <p/>
  * <tt>
@@ -35,7 +35,7 @@ package org.codemine.schedule;
  *       public void run() {
  *           System.out.println("Hello I was delayed 1 minute");
  *       }
- *    }.runTaskLater(this,1l,TimeUnit.MINUTES);
+ *    }.runTaskLater(this,20l,TimeUnit.SECONDS);
  * }
  * </pre></tt>
  * <p/>
