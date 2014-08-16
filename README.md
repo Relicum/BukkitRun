@@ -27,9 +27,15 @@ Maven Repo
 
 ```XML
     <repository>
-        <id>snapshot</id>
+        <id>relicum-snapshot</id>
         <url>http://repository-relicum.forge.cloudbees.com/snapshot/</url>
-    </repository>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository
 ```
 
 JavaDocs
